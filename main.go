@@ -46,6 +46,7 @@ func main() {
 	//s.a = 5
 	//length := unsafe.Sizeof(s)
 	//fmt.Println(length)
+
 	//C.setStruct(&s)
 	//
 	//s11 := myfun1.S{}
@@ -53,6 +54,10 @@ func main() {
 
 	sum := C.add(1, 2)
 	fmt.Println(sum)
+
+	str := "hello world"
+	length := C.lenStr(C.CString(str))
+	fmt.Println(length)
 
 	//s1 := S1{
 	//}

@@ -15,6 +15,7 @@ extern "C" {
 //}Ori;
 
 int add(int a, int b);
+int lenStr(char *s);
 
 #ifdef __cplusplus
 }
