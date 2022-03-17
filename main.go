@@ -1,24 +1,19 @@
 package main
 
 /*
-#include "c/myfun.h"
-#include "c/myfun1.h"
+//#include "c/myfun.h"
+//#include "c/myfun1.h"
 //#cgo CFLAGS: -D__CFUN2_H
 //extern int add(int a, int b);
 #include "cfun2.h"
-
 int add2(int a, int b){
 	return add(a,b);
 }
-
-#cgo LDFLAGS: -Wl,-rpath="./c" -Lc -lmyfun
+//#cgo LDFLAGS: -Wl,-rpath="./c" -Lc -lmyfun -lstdc++
 */
 import "C"
 import (
 	"fmt"
-	"test/myfun1"
-	"unsafe"
-
 	//"text/template"
 	"net/http"
 )
@@ -47,15 +42,16 @@ func setS1(s1 *S1) {
 }
 
 func main() {
-	s := C.S1{}
-	length := unsafe.Sizeof(s)
-	fmt.Println(length)
-	C.setStruct(&s)
+	//var s C.S1
+	//s.a = 5
+	//length := unsafe.Sizeof(s)
+	//fmt.Println(length)
+	//C.setStruct(&s)
+	//
+	//s11 := myfun1.S{}
+	//myfun1.TestMyFun1(&s11)
 
-	s11 := myfun1.S{}
-	myfun1.TestMyFun1(&s11)
-
-	sum := C.add2(1,2)
+	sum := C.add(1, 2)
 	fmt.Println(sum)
 
 	//s1 := S1{
