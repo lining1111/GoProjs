@@ -5,6 +5,7 @@ package main
 //#include "c/myfun1.h"
 //#cgo CFLAGS: -D__CFUN2_H
 //extern int add(int a, int b);
+#include <stdio.h>
 #include "cfun2.h"
 int add2(int a, int b){
 	return add(a,b);
@@ -13,7 +14,10 @@ int add2(int a, int b){
 */
 import "C"
 import (
+	"GoProjs/mybuffer"
 	"fmt"
+	"unsafe"
+
 	//"text/template"
 	"net/http"
 )
@@ -52,12 +56,18 @@ func main() {
 	//s11 := myfun1.S{}
 	//myfun1.TestMyFun1(&s11)
 
-	sum := C.add(1, 2)
-	fmt.Println(sum)
+	//sum := C.add(1, 2)
+	//fmt.Println(sum)
+	//
+	//str := "hello world"
+	//length := C.lenStr(C.CString(str))
+	//fmt.Println(length)
 
-	str := "hello world"
-	length := C.lenStr(C.CString(str))
-	fmt.Println(length)
+	buf := mybuffer.NewMyBuffer(1024)
+	defer buf.Delete()
+
+	copy(buf.Data(), []byte("hello\x00"))
+	C.puts((*C.char)(unsafe.Pointer(&(buf.Data()[0]))))
 
 	//s1 := S1{
 	//}
