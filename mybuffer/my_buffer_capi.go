@@ -28,3 +28,11 @@ func cgo_MyBuffer_Data(p *cgo_MyBuffer_T) *C.char {
 func cgo_MyBuffer_Size(p *cgo_MyBuffer_T) C.int {
 	return C.MyBuffer_Size((*C.MyBuffer_T)(p))
 }
+
+func cgo_MyBuffer_Push(p *cgo_MyBuffer_T, value int) {
+	C.MyBuffer_Push((*C.MyBuffer_T)(p), C.int(value))
+}
+
+func cgo_MyBuffer_Pop(p *cgo_MyBuffer_T) C.int {
+	return C.MyBuffer_Pop((*C.MyBuffer_T)(p))
+}

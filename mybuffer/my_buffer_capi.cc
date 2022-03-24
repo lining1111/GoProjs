@@ -23,3 +23,11 @@ char* MyBuffer_Data(MyBuffer_T* p) {
 int MyBuffer_Size(MyBuffer_T* p) {
 	return p->Size();
 }
+
+void MyBuffer_Push(MyBuffer_T* p, int value){
+    p->Push(value);
+}
+
+int MyBuffer_Pop(MyBuffer_T* p){
+    return p->Pop();
+}

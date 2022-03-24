@@ -59,15 +59,19 @@ func main() {
 	//sum := C.add(1, 2)
 	//fmt.Println(sum)
 	//
-	//str := "hello world"
-	//length := C.lenStr(C.CString(str))
-	//fmt.Println(length)
+	str := "hello world"
+	length := C.lenStr(C.CString(str))
+	fmt.Println(length)
 
 	buf := mybuffer.NewMyBuffer(1024)
 	defer buf.Delete()
 
 	copy(buf.Data(), []byte("hello\x00"))
 	C.puts((*C.char)(unsafe.Pointer(&(buf.Data()[0]))))
+
+	buf.Push(15)
+
+	fmt.Println(buf.Pop())
 
 	//s1 := S1{
 	//}

@@ -14,3 +14,11 @@ int MyBuffer::Size() const {
 char* MyBuffer::Data() {
     return (char*)this->s_->data();
 }
+
+void MyBuffer::Push(int value){
+    this->vectorInt.push_back(value);
+}
+
+int MyBuffer::Pop(){
+   return this->vectorInt.front();
+}

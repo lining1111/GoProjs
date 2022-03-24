@@ -24,3 +24,11 @@ func (p *MyBuffer) Data() []byte {
 	size := cgo_MyBuffer_Size(p.cptr)
 	return ((*[1 << 31]byte)(unsafe.Pointer(data)))[0:int(size):int(size)]
 }
+
+func (p MyBuffer) Push(value int) {
+	cgo_MyBuffer_Push(p.cptr, value)
+}
+
+func (p MyBuffer) Pop() int {
+	return int(cgo_MyBuffer_Pop(p.cptr))
+}
