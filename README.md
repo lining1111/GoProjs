@@ -42,3 +42,5 @@
     mybuffer.h是一个只含public成员和函数的类，编写方式符合c++风格
     通过my_buffer_capi的两个文件，将 struct形式重新定义了mybuffer类，供给go文件使用
     这里查到的c++上 class和struct的区别，就是class默认权限是private，而struct是public
+##20220325
+    通常的go c/c++混编，是基于go的package模式的，就是说 go和调用的c/c++文件在同一级目录上

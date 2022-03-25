@@ -1,8 +1,9 @@
 package main
 
 /*
+#cgo CXXFLAGS: -std=c++11
 //#include "c/myfun.h"
-//#include "c/myfun1.h"
+#include "myfun1.h"
 //#cgo CFLAGS: -D__CFUN2_H
 //extern int add(int a, int b);
 #include <stdio.h>
@@ -45,13 +46,37 @@ func setS1(s1 *S1) {
 	s1.a = 10
 }
 
-func main() {
-	//var s C.S1
-	//s.a = 5
-	//length := unsafe.Sizeof(s)
-	//fmt.Println(length)
+type S11 struct {
+	a int32
+	b byte
+	c int16
+}
 
-	//C.setStruct(&s)
+type Foo struct {
+	a int
+	b int
+}
+
+//https://blog.csdn.net/dielucui7698/article/details/101400578?utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-1-101400578.pc_agg_new_rank&utm_term=cgo+golang+%E4%BC%A0%E9%80%92%E7%BB%93%E6%9E%84%E4%BD%93&spm=1000.2123.3001.4430
+
+func main() {
+	//s := S11{a: 10}
+	//
+	////length := int(unsafe.Sizeof(s))
+	////fmt.Println(length)
+	//
+	//C.CGO_setStruct1((*C.CGO_S11)(unsafe.Pointer(&s)))
+
+	foo := Foo{10, 20}
+	foos := []*Foo{&Foo{1, 2}, &Foo{3, 4}}
+
+	C.pass_struct((*C.Foo)(unsafe.Pointer(&foo)))
+	//C.pass_structs((**C.Foo)(unsafe.Pointer(&foos[0])), C.int(len(foos)))
+
+	for _, f := range foos {
+		fmt.Printf("%d,%d\n", f.a, f.b)
+	}
+
 	//
 	//s11 := myfun1.S{}
 	//myfun1.TestMyFun1(&s11)
@@ -60,8 +85,8 @@ func main() {
 	//fmt.Println(sum)
 	//
 	str := "hello world"
-	length := C.lenStr(C.CString(str))
-	fmt.Println(length)
+	length1 := C.lenStr(C.CString(str))
+	fmt.Println(length1)
 
 	buf := mybuffer.NewMyBuffer(1024)
 	defer buf.Delete()
