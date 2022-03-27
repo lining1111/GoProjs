@@ -59,6 +59,7 @@ func main() {
 	myfun1.SetStructS11(s11)
 
 	fmt.Printf("a:%d,b:%d,c:%d\n", s11.GetA(), s11.GetB(), s11.GetC())
+	myfun1.DeleteS11(s11)
 
 	//s1 := S1{
 	//}
