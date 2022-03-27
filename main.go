@@ -1,24 +1,8 @@
 package main
 
-/*
-#cgo CXXFLAGS: -std=c++11
-//#include "c/myfun.h"
-#include "myfun1.h"
-//#cgo CFLAGS: -D__CFUN2_H
-//extern int add(int a, int b);
-#include <stdio.h>
-#include "cfun2.h"
-int add2(int a, int b){
-	return add(a,b);
-}
-//#cgo LDFLAGS: -Wl,-rpath="./c" -Lc -lmyfun -lstdc++
-*/
-import "C"
 import (
-	"GoProjs/mybuffer"
+	"GoProjs/myfun1"
 	"fmt"
-	"unsafe"
-
 	//"text/template"
 	"net/http"
 )
@@ -47,56 +31,34 @@ func setS1(s1 *S1) {
 }
 
 type S11 struct {
-	a int32
-	b byte
-	c int16
+	a int
+	b int
+	c int
 }
 
 type Foo struct {
 	a int
-	b int
+	b byte
 }
 
 //https://blog.csdn.net/dielucui7698/article/details/101400578?utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-1-101400578.pc_agg_new_rank&utm_term=cgo+golang+%E4%BC%A0%E9%80%92%E7%BB%93%E6%9E%84%E4%BD%93&spm=1000.2123.3001.4430
 
 func main() {
-	//s := S11{a: 10}
+
+	//exampleClass.ExampleClassTest()
+
+	//s11 :=myfun1.NewCGO_S11()
+	//myfun1.SetStructCGO_S11(s11)
 	//
-	////length := int(unsafe.Sizeof(s))
-	////fmt.Println(length)
-	//
-	//C.CGO_setStruct1((*C.CGO_S11)(unsafe.Pointer(&s)))
+	////s11.SetA(1)
+	////s11.SetB(2)
+	////s11.SetC(3)
+	//fmt.Printf("a:%d,b:%d,c:%d\n",s11.GetA(),s11.GetB(),s11.GetC())
 
-	foo := Foo{10, 20}
-	foos := []*Foo{&Foo{1, 2}, &Foo{3, 4}}
+	s11 := myfun1.NewS11()
+	myfun1.SetStructS11(s11)
 
-	C.pass_struct((*C.Foo)(unsafe.Pointer(&foo)))
-	//C.pass_structs((**C.Foo)(unsafe.Pointer(&foos[0])), C.int(len(foos)))
-
-	for _, f := range foos {
-		fmt.Printf("%d,%d\n", f.a, f.b)
-	}
-
-	//
-	//s11 := myfun1.S{}
-	//myfun1.TestMyFun1(&s11)
-
-	//sum := C.add(1, 2)
-	//fmt.Println(sum)
-	//
-	str := "hello world"
-	length1 := C.lenStr(C.CString(str))
-	fmt.Println(length1)
-
-	buf := mybuffer.NewMyBuffer(1024)
-	defer buf.Delete()
-
-	copy(buf.Data(), []byte("hello\x00"))
-	C.puts((*C.char)(unsafe.Pointer(&(buf.Data()[0]))))
-
-	buf.Push(15)
-
-	fmt.Println(buf.Pop())
+	fmt.Printf("a:%d,b:%d,c:%d\n", s11.GetA(), s11.GetB(), s11.GetC())
 
 	//s1 := S1{
 	//}

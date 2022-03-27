@@ -44,3 +44,7 @@
     这里查到的c++上 class和struct的区别，就是class默认权限是private，而struct是public
 ##20220325
     通常的go c/c++混编，是基于go的package模式的，就是说 go和调用的c/c++文件在同一级目录上
+##20220327
+    myfun1：go通过 swig调用c++的例子
+    myfun1 是参考swig example go class的例子做的，需要强调的一点是，函数有返回值的必须返回。
+    
