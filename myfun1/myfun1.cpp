@@ -18,3 +18,12 @@ void setStructCGO_S11(CGO_S11 *s){
     s->c = s11.c;
 }
 
+void SerialStructS11(uint8_t *out, uint32_t *len, S11 *s){
+    if(out ==nullptr || len == nullptr){
+        return;
+    }
+
+    memcpy(out, s,sizeof(S11));
+    *len = sizeof(S11);
+
+}

@@ -9,13 +9,13 @@ extern "C" {
 #include <stdlib.h>
 #include <unistd.h>
 
-//#pragma pack(1)
+#pragma pack(1)
 typedef struct {
     int a;
     char b;
     short c;
 } S11;
-//#pragma pack()
+#pragma pack()
 
 typedef struct {
     int a;
@@ -26,6 +26,7 @@ typedef struct {
 void setStructS11(S11 *s);
 void setStructCGO_S11(CGO_S11 *s);
 
+void SerialStructS11(uint8_t *out, uint32_t *len, S11 *s);
 
 #ifdef __cplusplus
 }

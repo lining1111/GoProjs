@@ -3,6 +3,8 @@ package main
 import (
 	"GoProjs/myfun1"
 	"fmt"
+	"unsafe"
+
 	//"text/template"
 	"net/http"
 )
@@ -47,18 +49,23 @@ func main() {
 
 	//exampleClass.ExampleClassTest()
 
-	//s11 :=myfun1.NewCGO_S11()
-	//myfun1.SetStructCGO_S11(s11)
-	//
-	////s11.SetA(1)
-	////s11.SetB(2)
-	////s11.SetC(3)
-	//fmt.Printf("a:%d,b:%d,c:%d\n",s11.GetA(),s11.GetB(),s11.GetC())
-
 	s11 := myfun1.NewS11()
 	myfun1.SetStructS11(s11)
 
 	fmt.Printf("a:%d,b:%d,c:%d\n", s11.GetA(), s11.GetB(), s11.GetC())
+
+	var serialPtr myfun1.Uint8_t
+	var serialLen myfun1.Uint32_t
+
+	serialBuf := make([]byte, 1024)
+
+	serialPtr.Swigcptr() = uintptr(unsafe.Pointer(&serialBuf[0]))
+	myfun1.SerialStructS11(serialPtr, serialLen, s11)
+
+	result := (*[1 << 32]byte)(unsafe.Pointer(serialPtr.Swigcptr()))[:*(*uint)(unsafe.Pointer(serialLen.Swigcptr()))]
+
+	fmt.Println(result)
+
 	myfun1.DeleteS11(s11)
 
 	//s1 := S1{

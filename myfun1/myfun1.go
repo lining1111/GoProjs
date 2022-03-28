@@ -48,6 +48,7 @@ extern uintptr_t _wrap_new_CGO_S11_myfun1_b7e9c6cff453cebb(void);
 extern void _wrap_delete_CGO_S11_myfun1_b7e9c6cff453cebb(uintptr_t arg1);
 extern void _wrap_setStructS11_myfun1_b7e9c6cff453cebb(uintptr_t arg1);
 extern void _wrap_setStructCGO_S11_myfun1_b7e9c6cff453cebb(uintptr_t arg1);
+extern void _wrap_SerialStructS11_myfun1_b7e9c6cff453cebb(uintptr_t arg1, uintptr_t arg2, uintptr_t arg3);
 #undef intgo
 */
 import "C"
@@ -226,4 +227,29 @@ func SetStructS11(arg1 S11) {
 func SetStructCGO_S11(arg1 CGO_S11) {
 	_swig_i_0 := arg1.Swigcptr()
 	C._wrap_setStructCGO_S11_myfun1_b7e9c6cff453cebb(C.uintptr_t(_swig_i_0))
+}
+
+func SerialStructS11(arg1 Uint8_t, arg2 Uint32_t, arg3 S11) {
+	_swig_i_0 := arg1.Swigcptr()
+	_swig_i_1 := arg2.Swigcptr()
+	_swig_i_2 := arg3.Swigcptr()
+	C._wrap_SerialStructS11_myfun1_b7e9c6cff453cebb(C.uintptr_t(_swig_i_0), C.uintptr_t(_swig_i_1), C.uintptr_t(_swig_i_2))
+}
+
+type SwigcptrUint32_t uintptr
+type Uint32_t interface {
+	Swigcptr() uintptr
+}
+
+func (p SwigcptrUint32_t) Swigcptr() uintptr {
+	return uintptr(p)
+}
+
+type SwigcptrUint8_t uintptr
+type Uint8_t interface {
+	Swigcptr() uintptr
+}
+
+func (p SwigcptrUint8_t) Swigcptr() uintptr {
+	return uintptr(p)
 }
