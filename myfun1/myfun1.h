@@ -5,15 +5,15 @@
 extern "C" {
 #endif
 
-#include <stdint.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <stdint.h>
 
 #pragma pack(1)
 typedef struct {
-    int a;
-    char b;
-    short c;
+    uint32_t a;
+    uint8_t b;
+    uint16_t c;
 } S11;
 #pragma pack()
 

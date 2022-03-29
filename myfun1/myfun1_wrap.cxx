@@ -242,11 +242,14 @@ static void* Swig_malloc(int c) {
 
 #include "myfun1.h"
 
+
+#include <stdint.h>		// Use the C99 official header
+
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-void _wrap_Swig_free_myfun1_b7e9c6cff453cebb(void *_swig_go_0) {
+void _wrap_Swig_free_myfun1_ef595fa3da7f61d8(void *_swig_go_0) {
   void *arg1 = (void *) 0 ;
   
   arg1 = *(void **)&_swig_go_0; 
@@ -256,7 +259,7 @@ void _wrap_Swig_free_myfun1_b7e9c6cff453cebb(void *_swig_go_0) {
 }
 
 
-void *_wrap_Swig_malloc_myfun1_b7e9c6cff453cebb(intgo _swig_go_0) {
+void *_wrap_Swig_malloc_myfun1_ef595fa3da7f61d8(intgo _swig_go_0) {
   int arg1 ;
   void *result = 0 ;
   void *_swig_go_result;
@@ -269,82 +272,82 @@ void *_wrap_Swig_malloc_myfun1_b7e9c6cff453cebb(intgo _swig_go_0) {
 }
 
 
-void _wrap_S11_a_set_myfun1_b7e9c6cff453cebb(S11 *_swig_go_0, intgo _swig_go_1) {
+void _wrap_S11_a_set_myfun1_ef595fa3da7f61d8(S11 *_swig_go_0, intgo _swig_go_1) {
   S11 *arg1 = (S11 *) 0 ;
-  int arg2 ;
+  uint32_t arg2 ;
   
   arg1 = *(S11 **)&_swig_go_0; 
-  arg2 = (int)_swig_go_1; 
+  arg2 = (uint32_t)_swig_go_1; 
   
   if (arg1) (arg1)->a = arg2;
   
 }
 
 
-intgo _wrap_S11_a_get_myfun1_b7e9c6cff453cebb(S11 *_swig_go_0) {
+intgo _wrap_S11_a_get_myfun1_ef595fa3da7f61d8(S11 *_swig_go_0) {
   S11 *arg1 = (S11 *) 0 ;
-  int result;
+  uint32_t result;
   intgo _swig_go_result;
   
   arg1 = *(S11 **)&_swig_go_0; 
   
-  result = (int) ((arg1)->a);
+  result = (uint32_t) ((arg1)->a);
   _swig_go_result = result; 
   return _swig_go_result;
 }
 
 
-void _wrap_S11_b_set_myfun1_b7e9c6cff453cebb(S11 *_swig_go_0, char _swig_go_1) {
+void _wrap_S11_b_set_myfun1_ef595fa3da7f61d8(S11 *_swig_go_0, char _swig_go_1) {
   S11 *arg1 = (S11 *) 0 ;
-  char arg2 ;
+  uint8_t arg2 ;
   
   arg1 = *(S11 **)&_swig_go_0; 
-  arg2 = (char)_swig_go_1; 
+  arg2 = (uint8_t)_swig_go_1; 
   
   if (arg1) (arg1)->b = arg2;
   
 }
 
 
-char _wrap_S11_b_get_myfun1_b7e9c6cff453cebb(S11 *_swig_go_0) {
+char _wrap_S11_b_get_myfun1_ef595fa3da7f61d8(S11 *_swig_go_0) {
   S11 *arg1 = (S11 *) 0 ;
-  char result;
+  uint8_t result;
   char _swig_go_result;
   
   arg1 = *(S11 **)&_swig_go_0; 
   
-  result = (char) ((arg1)->b);
+  result = (uint8_t) ((arg1)->b);
   _swig_go_result = result; 
   return _swig_go_result;
 }
 
 
-void _wrap_S11_c_set_myfun1_b7e9c6cff453cebb(S11 *_swig_go_0, short _swig_go_1) {
+void _wrap_S11_c_set_myfun1_ef595fa3da7f61d8(S11 *_swig_go_0, short _swig_go_1) {
   S11 *arg1 = (S11 *) 0 ;
-  short arg2 ;
+  uint16_t arg2 ;
   
   arg1 = *(S11 **)&_swig_go_0; 
-  arg2 = (short)_swig_go_1; 
+  arg2 = (uint16_t)_swig_go_1; 
   
   if (arg1) (arg1)->c = arg2;
   
 }
 
 
-short _wrap_S11_c_get_myfun1_b7e9c6cff453cebb(S11 *_swig_go_0) {
+short _wrap_S11_c_get_myfun1_ef595fa3da7f61d8(S11 *_swig_go_0) {
   S11 *arg1 = (S11 *) 0 ;
-  short result;
+  uint16_t result;
   short _swig_go_result;
   
   arg1 = *(S11 **)&_swig_go_0; 
   
-  result = (short) ((arg1)->c);
+  result = (uint16_t) ((arg1)->c);
   _swig_go_result = result; 
   return _swig_go_result;
 }
 
 
-S11 *_wrap_new_S11_myfun1_b7e9c6cff453cebb() {
+S11 *_wrap_new_S11_myfun1_ef595fa3da7f61d8() {
   S11 *result = 0 ;
   S11 *_swig_go_result;
   
@@ -355,7 +358,7 @@ S11 *_wrap_new_S11_myfun1_b7e9c6cff453cebb() {
 }
 
 
-void _wrap_delete_S11_myfun1_b7e9c6cff453cebb(S11 *_swig_go_0) {
+void _wrap_delete_S11_myfun1_ef595fa3da7f61d8(S11 *_swig_go_0) {
   S11 *arg1 = (S11 *) 0 ;
   
   arg1 = *(S11 **)&_swig_go_0; 
@@ -365,7 +368,7 @@ void _wrap_delete_S11_myfun1_b7e9c6cff453cebb(S11 *_swig_go_0) {
 }
 
 
-void _wrap_CGO_S11_a_set_myfun1_b7e9c6cff453cebb(CGO_S11 *_swig_go_0, intgo _swig_go_1) {
+void _wrap_CGO_S11_a_set_myfun1_ef595fa3da7f61d8(CGO_S11 *_swig_go_0, intgo _swig_go_1) {
   CGO_S11 *arg1 = (CGO_S11 *) 0 ;
   int arg2 ;
   
@@ -377,7 +380,7 @@ void _wrap_CGO_S11_a_set_myfun1_b7e9c6cff453cebb(CGO_S11 *_swig_go_0, intgo _swi
 }
 
 
-intgo _wrap_CGO_S11_a_get_myfun1_b7e9c6cff453cebb(CGO_S11 *_swig_go_0) {
+intgo _wrap_CGO_S11_a_get_myfun1_ef595fa3da7f61d8(CGO_S11 *_swig_go_0) {
   CGO_S11 *arg1 = (CGO_S11 *) 0 ;
   int result;
   intgo _swig_go_result;
@@ -390,7 +393,7 @@ intgo _wrap_CGO_S11_a_get_myfun1_b7e9c6cff453cebb(CGO_S11 *_swig_go_0) {
 }
 
 
-void _wrap_CGO_S11_b_set_myfun1_b7e9c6cff453cebb(CGO_S11 *_swig_go_0, char _swig_go_1) {
+void _wrap_CGO_S11_b_set_myfun1_ef595fa3da7f61d8(CGO_S11 *_swig_go_0, char _swig_go_1) {
   CGO_S11 *arg1 = (CGO_S11 *) 0 ;
   char arg2 ;
   
@@ -402,7 +405,7 @@ void _wrap_CGO_S11_b_set_myfun1_b7e9c6cff453cebb(CGO_S11 *_swig_go_0, char _swig
 }
 
 
-char _wrap_CGO_S11_b_get_myfun1_b7e9c6cff453cebb(CGO_S11 *_swig_go_0) {
+char _wrap_CGO_S11_b_get_myfun1_ef595fa3da7f61d8(CGO_S11 *_swig_go_0) {
   CGO_S11 *arg1 = (CGO_S11 *) 0 ;
   char result;
   char _swig_go_result;
@@ -415,7 +418,7 @@ char _wrap_CGO_S11_b_get_myfun1_b7e9c6cff453cebb(CGO_S11 *_swig_go_0) {
 }
 
 
-void _wrap_CGO_S11_c_set_myfun1_b7e9c6cff453cebb(CGO_S11 *_swig_go_0, short _swig_go_1) {
+void _wrap_CGO_S11_c_set_myfun1_ef595fa3da7f61d8(CGO_S11 *_swig_go_0, short _swig_go_1) {
   CGO_S11 *arg1 = (CGO_S11 *) 0 ;
   short arg2 ;
   
@@ -427,7 +430,7 @@ void _wrap_CGO_S11_c_set_myfun1_b7e9c6cff453cebb(CGO_S11 *_swig_go_0, short _swi
 }
 
 
-short _wrap_CGO_S11_c_get_myfun1_b7e9c6cff453cebb(CGO_S11 *_swig_go_0) {
+short _wrap_CGO_S11_c_get_myfun1_ef595fa3da7f61d8(CGO_S11 *_swig_go_0) {
   CGO_S11 *arg1 = (CGO_S11 *) 0 ;
   short result;
   short _swig_go_result;
@@ -440,7 +443,7 @@ short _wrap_CGO_S11_c_get_myfun1_b7e9c6cff453cebb(CGO_S11 *_swig_go_0) {
 }
 
 
-CGO_S11 *_wrap_new_CGO_S11_myfun1_b7e9c6cff453cebb() {
+CGO_S11 *_wrap_new_CGO_S11_myfun1_ef595fa3da7f61d8() {
   CGO_S11 *result = 0 ;
   CGO_S11 *_swig_go_result;
   
@@ -451,7 +454,7 @@ CGO_S11 *_wrap_new_CGO_S11_myfun1_b7e9c6cff453cebb() {
 }
 
 
-void _wrap_delete_CGO_S11_myfun1_b7e9c6cff453cebb(CGO_S11 *_swig_go_0) {
+void _wrap_delete_CGO_S11_myfun1_ef595fa3da7f61d8(CGO_S11 *_swig_go_0) {
   CGO_S11 *arg1 = (CGO_S11 *) 0 ;
   
   arg1 = *(CGO_S11 **)&_swig_go_0; 
@@ -461,7 +464,7 @@ void _wrap_delete_CGO_S11_myfun1_b7e9c6cff453cebb(CGO_S11 *_swig_go_0) {
 }
 
 
-void _wrap_setStructS11_myfun1_b7e9c6cff453cebb(S11 *_swig_go_0) {
+void _wrap_setStructS11_myfun1_ef595fa3da7f61d8(S11 *_swig_go_0) {
   S11 *arg1 = (S11 *) 0 ;
   
   arg1 = *(S11 **)&_swig_go_0; 
@@ -471,7 +474,7 @@ void _wrap_setStructS11_myfun1_b7e9c6cff453cebb(S11 *_swig_go_0) {
 }
 
 
-void _wrap_setStructCGO_S11_myfun1_b7e9c6cff453cebb(CGO_S11 *_swig_go_0) {
+void _wrap_setStructCGO_S11_myfun1_ef595fa3da7f61d8(CGO_S11 *_swig_go_0) {
   CGO_S11 *arg1 = (CGO_S11 *) 0 ;
   
   arg1 = *(CGO_S11 **)&_swig_go_0; 
@@ -481,7 +484,7 @@ void _wrap_setStructCGO_S11_myfun1_b7e9c6cff453cebb(CGO_S11 *_swig_go_0) {
 }
 
 
-void _wrap_SerialStructS11_myfun1_b7e9c6cff453cebb(uint8_t *_swig_go_0, uint32_t *_swig_go_1, S11 *_swig_go_2) {
+void _wrap_SerialStructS11_myfun1_ef595fa3da7f61d8(char *_swig_go_0, intgo *_swig_go_1, S11 *_swig_go_2) {
   uint8_t *arg1 = (uint8_t *) 0 ;
   uint32_t *arg2 = (uint32_t *) 0 ;
   S11 *arg3 = (S11 *) 0 ;
@@ -495,7 +498,7 @@ void _wrap_SerialStructS11_myfun1_b7e9c6cff453cebb(uint8_t *_swig_go_0, uint32_t
 }
 
 
-void _wrap_SerialStructS11Ptr_myfun1_b7e9c6cff453cebb(uint8_t *_swig_go_0, uint32_t *_swig_go_1, void *_swig_go_2) {
+void _wrap_SerialStructS11Ptr_myfun1_ef595fa3da7f61d8(char *_swig_go_0, intgo *_swig_go_1, void *_swig_go_2) {
   uint8_t *arg1 = (uint8_t *) 0 ;
   uint32_t *arg2 = (uint32_t *) 0 ;
   void *arg3 = (void *) 0 ;

@@ -6,4 +6,5 @@
 %}
 
 /* Let's just grab the original header file here */
+%include "stdint.i"
 %include "myfun1.h"
