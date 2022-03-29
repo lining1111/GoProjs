@@ -22,6 +22,7 @@ void SerialStructS11(uint8_t *out, uint32_t *len, S11 *s){
     if(out ==nullptr || len == nullptr){
         return;
     }
+    printf("s.c:%d\n",s->c);
 
     memcpy(out, s,sizeof(S11));
     *len = sizeof(S11);

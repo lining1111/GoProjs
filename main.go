@@ -58,11 +58,13 @@ func main() {
 	var serialLen myfun1.Uint32_t
 
 	serialBuf := make([]byte, 1024)
+	serialBudLen := int32(0)
 
-	serialPtr.Swigcptr() = uintptr(unsafe.Pointer(&serialBuf[0]))
+	serialPtr = (myfun1.Uint8_t)(myfun1.SwigcptrUint8_t(unsafe.Pointer(&serialBuf[0])))
+	serialLen = (myfun1.Uint32_t)(myfun1.SwigcptrUint32_t(unsafe.Pointer(&serialBudLen)))
 	myfun1.SerialStructS11(serialPtr, serialLen, s11)
-
-	result := (*[1 << 32]byte)(unsafe.Pointer(serialPtr.Swigcptr()))[:*(*uint)(unsafe.Pointer(serialLen.Swigcptr()))]
+	fmt.Printf("a:%d,b:%d,c:%d\n", s11.GetA(), s11.GetB(), s11.GetC())
+	result := serialBuf[0:serialBudLen]
 
 	fmt.Println(result)
 
