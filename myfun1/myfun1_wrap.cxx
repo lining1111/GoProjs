@@ -495,6 +495,20 @@ void _wrap_SerialStructS11_myfun1_b7e9c6cff453cebb(uint8_t *_swig_go_0, uint32_t
 }
 
 
+void _wrap_SerialStructS11Ptr_myfun1_b7e9c6cff453cebb(uint8_t *_swig_go_0, uint32_t *_swig_go_1, void *_swig_go_2) {
+  uint8_t *arg1 = (uint8_t *) 0 ;
+  uint32_t *arg2 = (uint32_t *) 0 ;
+  void *arg3 = (void *) 0 ;
+  
+  arg1 = *(uint8_t **)&_swig_go_0; 
+  arg2 = *(uint32_t **)&_swig_go_1; 
+  arg3 = *(void **)&_swig_go_2; 
+  
+  SerialStructS11Ptr(arg1,arg2,arg3);
+  
+}
+
+
 #ifdef __cplusplus
 }
 #endif

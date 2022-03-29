@@ -27,6 +27,7 @@ void setStructS11(S11 *s);
 void setStructCGO_S11(CGO_S11 *s);
 
 void SerialStructS11(uint8_t *out, uint32_t *len, S11 *s);
+void SerialStructS11Ptr(uint8_t *out, uint32_t *len, void *p);
 
 #ifdef __cplusplus
 }

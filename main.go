@@ -62,7 +62,7 @@ func main() {
 
 	serialPtr = (myfun1.Uint8_t)(myfun1.SwigcptrUint8_t(unsafe.Pointer(&serialBuf[0])))
 	serialLen = (myfun1.Uint32_t)(myfun1.SwigcptrUint32_t(unsafe.Pointer(&serialBudLen)))
-	myfun1.SerialStructS11(serialPtr, serialLen, s11)
+	myfun1.SerialStructS11Ptr(serialPtr, serialLen, s11.Swigcptr())
 	fmt.Printf("a:%d,b:%d,c:%d\n", s11.GetA(), s11.GetB(), s11.GetC())
 	result := serialBuf[0:serialBudLen]
 

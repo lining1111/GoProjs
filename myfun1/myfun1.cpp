@@ -28,3 +28,15 @@ void SerialStructS11(uint8_t *out, uint32_t *len, S11 *s){
     *len = sizeof(S11);
 
 }
+
+void SerialStructS11Ptr(uint8_t *out, uint32_t *len, void *p){
+    if(out ==nullptr || len == nullptr || p==nullptr){
+        return;
+    }
+
+    auto s = (S11*)p;
+    printf("s.c:%d\n",s->c);
+
+    memcpy(out, s,sizeof(S11));
+    *len = sizeof(S11);
+}
