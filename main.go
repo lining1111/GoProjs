@@ -3,6 +3,8 @@ package main
 import (
 	"GoProjs/myfun1"
 	"fmt"
+	"unsafe"
+
 	//"text/template"
 	"net/http"
 )
@@ -46,6 +48,28 @@ type Foo struct {
 func main() {
 
 	//exampleClass.ExampleClassTest()
+
+	bs := make([]byte, 51)
+	bsp1 := &bs[0]
+	fmt.Printf("%T", bsp1)
+	bsp := (*byte)(unsafe.Pointer(&bs[0]))
+	bspUintptr := uintptr(unsafe.Pointer(bsp)) // 第11行，行号状态机描述的有问题
+
+	bs[1] = 200
+	fmt.Printf("%d\n", *(*byte)(unsafe.Pointer(bspUintptr + 1)))
+
+	//×byte-->[]byte
+	var arr1 = [4]byte{11, 22, 33, 44}
+	p := &arr1[0]
+	fmt.Printf("%T,%v\n", p, &arr1) // 数组指针
+	//先变成任意指针
+	ptr := uintptr(unsafe.Pointer(p))
+	var arr2 = make([]byte, 4)
+	for i := 0; i < len(arr2); i++ {
+		//然后和c取值一样
+		arr2[i] = *(*byte)(unsafe.Pointer(ptr + uintptr(i)))
+	}
+	fmt.Println(arr2)
 
 	s11 := myfun1.NewS11()
 	myfun1.SetStructS11(s11)
