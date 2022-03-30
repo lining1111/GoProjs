@@ -49,17 +49,18 @@ func main() {
 
 	//exampleClass.ExampleClassTest()
 
-	bs := make([]byte, 51)
-	bsp1 := &bs[0]
-	fmt.Printf("%T", bsp1)
-	bsp := (*byte)(unsafe.Pointer(&bs[0]))
-	bspUintptr := uintptr(unsafe.Pointer(bsp)) // 第11行，行号状态机描述的有问题
-
-	bs[1] = 200
-	fmt.Printf("%d\n", *(*byte)(unsafe.Pointer(bspUintptr + 1)))
+	//bs := make([]byte, 51)
+	//bsp1 := &bs[0]
+	//fmt.Printf("%T", bsp1)
+	//bsp := (*byte)(unsafe.Pointer(&bs[0]))
+	//bspUintptr := uintptr(unsafe.Pointer(bsp)) // 第11行，行号状态机描述的有问题
+	//
+	//bs[1] = 200
+	//fmt.Printf("%d\n", *(*byte)(unsafe.Pointer(bspUintptr + 1)))
 
 	//×byte-->[]byte
 	var arr1 = [4]byte{11, 22, 33, 44}
+
 	p := &arr1[0]
 	fmt.Printf("%T,%v\n", p, &arr1) // 数组指针
 	//先变成任意指针
