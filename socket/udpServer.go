@@ -1,24 +1,36 @@
 package socket
 
 import (
+	"bufio"
+	"fmt"
 	"net"
-	"time"
 )
 
 func handleClient(conn *net.UDPConn) {
-	var buf []byte
-	_, addr, err := conn.ReadFromUDP(buf)
-	checkError(err)
-	dayTime := time.Now().String()
-	conn.WriteToUDP([]byte(dayTime), addr)
+	for {
+		reader := bufio.NewReader(conn)
+		buf := make([]byte, 1024)
+		_, err := reader.Read(buf)
+		if err != nil {
+			continue
+		}
+		fmt.Println(string(buf))
+	}
+	//dayTime := time.Now().String()
+	//conn.WriteToUDP([]byte(dayTime), addr)
 }
 
-func init() {
-	service := "1200"
-	udpAddr, err := net.ResolveUDPAddr("udp4", service)
+func UDPServer() {
+	//service := ":3000"
+	//udpAddr, err := net.ResolveUDPAddr("udp", service)
+	//checkError(err)
+	var err error
+	conn, err = net.ListenUDP("udp", &net.UDPAddr{
+		IP:   net.IPv4(0, 0, 0, 0),
+		Port: 3000,
+	})
 	checkError(err)
-	conn, err := net.ListenUDP("udp", udpAddr)
-	checkError(err)
+	fmt.Println("udp server")
 	for {
 		handleClient(conn)
 	}

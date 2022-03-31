@@ -21,16 +21,16 @@ func handlerClient(conn net.Conn) {
 
 }
 
-func init() {
-	service := ":7777"
-	tcpAddr, err := net.ResolveTCPAddr("tcp", service)
-	checkError(err)
-	listener, err := net.ListenTCP("tcp", tcpAddr)
-	for {
-		conn, err := listener.Accept()
-		if err != nil {
-			continue
-		}
-		go handlerClient(conn)
-	}
-}
+//func init() {
+//	service := ":7777"
+//	tcpAddr, err := net.ResolveTCPAddr("tcp", service)
+//	checkError(err)
+//	listener, err := net.ListenTCP("tcp", tcpAddr)
+//	for {
+//		conn, err := listener.Accept()
+//		if err != nil {
+//			continue
+//		}
+//		go handlerClient(conn)
+//	}
+//}
