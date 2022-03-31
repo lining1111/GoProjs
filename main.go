@@ -49,6 +49,8 @@ func main() {
 
 	//exampleClass.ExampleClassTest()
 
+	//exampleStruct.ExampleStructTest()
+
 	//bs := make([]byte, 51)
 	//bsp1 := &bs[0]
 	//fmt.Printf("%T", bsp1)
