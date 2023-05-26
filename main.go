@@ -1,66 +1,90 @@
 package main
 
 import (
-	"fmt"
-	"os"
-	"os/exec"
-
-	//"text/template"
-	"net/http"
+	"bufio"
+	"crypto/tls"
+	"log"
+	"net"
 )
 
-func hello(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("hello"))
-}
+//// ReadCmdOut 实时从脚本获取运行结果
+//func ReadCmdOut() {
+//	shell := "./update.sh"
+//	//增加可执行属性
+//	cmd := exec.Command("chmod", "+x", shell)
+//	cmd.Run()
+//	cmd = exec.Command("/bin/bash", "-c", shell)
+//	cmd.Stdin = os.Stdin
+//	//捕获标准输出
+//	stdout, err := cmd.StdoutPipe()
+//	if err != nil {
+//		fmt.Println(err)
+//		os.Exit(1)
+//	}
+//
+//	if err = cmd.Start(); err != nil {
+//		fmt.Println(err)
+//		os.Exit(1)
+//	}
+//	for true {
+//		tmp := make([]byte, 1024)
+//		_, err := stdout.Read(tmp)
+//		fmt.Print(string(tmp))
+//		if err != nil {
+//			break
+//		}
+//	}
+//	if err = cmd.Wait(); err != nil {
+//		fmt.Println(err)
+//		os.Exit(1)
+//	}
+//
+//	return
+//}
 
-func process(w http.ResponseWriter, r *http.Request) {
-	err := r.ParseForm()
-	if err != nil {
-		fmt.Printf("form parse fail")
-	}
-	first_name := r.PostForm["first_name"]
-	last_name := r.PostForm["last_name"]
-	fmt.Printf("first_name:%s\n", first_name)
-	fmt.Printf("last_name:%s\n", last_name)
-}
-
-// ReadCmdOut 实时从脚本获取运行结果
-func ReadCmdOut() {
-	shell := "./update.sh"
-	//增加可执行属性
-	cmd := exec.Command("chmod", "+x", shell)
-	cmd.Run()
-	cmd = exec.Command("/bin/bash", "-c", shell)
-	cmd.Stdin = os.Stdin
-	//捕获标准输出
-	stdout, err := cmd.StdoutPipe()
-	if err != nil {
-		fmt.Println(err)
-		os.Exit(1)
-	}
-
-	if err = cmd.Start(); err != nil {
-		fmt.Println(err)
-		os.Exit(1)
-	}
-	for true {
-		tmp := make([]byte, 1024)
-		_, err := stdout.Read(tmp)
-		fmt.Print(string(tmp))
+func handleconnection(conn net.Conn) {
+	defer conn.Close()
+	r := bufio.NewReader(conn)
+	for {
+		msg, err := r.ReadString('\n')
 		if err != nil {
-			break
+			log.Println(err)
+			return
+		}
+		println(msg)
+		n, err := conn.Write([]byte("world\n"))
+		if err != nil {
+			log.Println(n, err)
+			return
 		}
 	}
-	if err = cmd.Wait(); err != nil {
-		fmt.Println(err)
-		os.Exit(1)
-	}
-
-	return
 }
 
 func main() {
-	ReadCmdOut()
+
+	cer, err := tls.LoadX509KeyPair("cert.pem", "key.pem")
+	if err != nil {
+		log.Println(err)
+		return
+	}
+	config := &tls.Config{Certificates: []tls.Certificate{cer}}
+	ln, err := tls.Listen("tcp", ":8000", config)
+	if err != nil {
+		log.Println(err)
+		return
+	}
+	defer ln.Close()
+	for {
+		conn, err := ln.Accept()
+		if err != nil {
+			log.Println(err)
+			continue
+		}
+		log.Println("conn connect ", conn.LocalAddr().String())
+		go handleconnection(conn)
+	}
+
+	//ReadCmdOut()
 	//var wg sync.WaitGroup
 	//
 	//wg.Add(1)
